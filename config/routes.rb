@@ -5,7 +5,9 @@ Musiclib2::Application.routes.draw do
 
   resources :volumes
 
-  resources :artists
+  resources :artists do
+    resources :volumes
+  end
 
   get "welcome/index"
   

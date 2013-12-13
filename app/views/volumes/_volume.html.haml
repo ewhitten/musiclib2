@@ -1,0 +1,11 @@
+- cache volume do
+  %tr
+    %td.name
+      = volume.name
+    %td.artist
+      = link_to volume.artist.name, volume.artist
+    %td.actions
+      = link_to "details", volume
+      - unless @category.present?
+        \|
+        = link_to "new album", new_volume_path(volume)

@@ -1,0 +1,23 @@
+- title "#{@volume.name} - #{@volume.artist.name}"
+
+%h1
+  = "#{@volume.name} - #{@volume.artist.name}"
+
+%h3
+  = link_to "Back to Albums", volumes_path
+  
+%table
+  %thead
+    %tr
+      %th.index
+        \#
+      %th.track
+        Track
+      %th.artist
+        Artist
+      %th.vol
+        Album
+      %th.actions
+        &nbsp;
+  %tbody
+    = render @volume.tracks

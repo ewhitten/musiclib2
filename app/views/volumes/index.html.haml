@@ -1,0 +1,13 @@
+- title "All Volumes"
+
+%table 
+  %thead
+    %tr
+      %th.name
+        Volume
+      %th.artist
+        Artist(s)
+      %th.actions
+        = link_to "Add a Volume", new_volume_path, remote: true
+  %tbody
+    = render @volumes

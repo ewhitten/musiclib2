@@ -1,0 +1,11 @@
+- title "All Artists"
+
+%table 
+  %thead
+    %tr
+      %th.name
+        Artist
+      %th.actions
+        = link_to "Add an Artist", new_artist_path, remote: true
+  %tbody
+    = render @artists

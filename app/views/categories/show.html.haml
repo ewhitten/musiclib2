@@ -1,0 +1,19 @@
+- title @category.name
+
+%h1
+  = @category.name
+  
+%h3
+  = link_to "Back to Categories", categories_path
+  
+%table
+  %thead
+    %tr
+      %th.vol
+        Album
+      %th.artist
+        Artist
+      %th.actions
+        &nbsp;
+  %tbody
+    = render @category.volumes

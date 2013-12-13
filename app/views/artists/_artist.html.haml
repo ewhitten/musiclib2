@@ -1,0 +1,8 @@
+- cache artist do
+  %tr
+    %td.name
+      = artist.name
+    %td.actions
+      = link_to "details", artist
+      \|
+      = link_to "new album", new_artist_volume_path(artist)

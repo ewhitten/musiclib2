@@ -16,15 +16,15 @@ ActiveRecord::Schema.define(version: 20131212094217) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "artist_volumes", force: true do |t|
-    t.integer  "artist_id"
-    t.integer  "volume_id"
+  create_table "artists", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "artists", force: true do |t|
-    t.string   "name"
+  create_table "artists_volumes", force: true do |t|
+    t.integer  "artist_id"
+    t.integer  "volume_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
