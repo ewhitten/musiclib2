@@ -3,6 +3,7 @@ class ArtistsController < ApplicationController
   
   before_filter :load_artists, only: [:index]
   before_filter :find_artist, only: [:show, :edit, :update, :destroy]
+  before_filter :load_artist_tracks, only: [:show]
   before_filter :build_artist, only: [:new, :create]
 
   def create
@@ -29,6 +30,11 @@ class ArtistsController < ApplicationController
   
   def find_artist
     @artist = Artist.find(params[:id])
+  end
+  
+  def load_artist_tracks
+    @volumes = @artist.volumes
+    @track_volumes = (@artist.tracks - @volumes.map {|v| v.tracks}.flatten).map {|t| t.volume}
   end
   
   def build_artist

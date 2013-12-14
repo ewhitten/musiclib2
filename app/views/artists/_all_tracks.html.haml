@@ -1,0 +1,17 @@
+%h3
+  = volume.name
+
+%table.volume_details
+  %thead
+    %tr
+      %th.index
+        \#
+      %th.track
+        Name
+      %th.artist
+        Artist
+      %th.vol
+        Album
+      %th.actions
+  %tbody
+    = render volume.tracks.where(artist: @artist)

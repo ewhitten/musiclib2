@@ -13,7 +13,7 @@ gem "rabl"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
-
+gem 'will_paginate', '~> 3.0'
 gem "bootstrap-sass"
 
 group :development do

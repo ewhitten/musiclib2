@@ -8,4 +8,5 @@
       %th.actions
         = link_to "Add an Artist", new_artist_path, remote: true
   %tbody
-    = render @artists
+    - cache cache_key_for(Artist) do
+      = render @artists

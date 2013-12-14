@@ -8,4 +8,5 @@
       %th.actions
         &nbsp;
   %tbody
-    = render @categories
+    - cache cache_key_for(Category) do
+      = render @categories

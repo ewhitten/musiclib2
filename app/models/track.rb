@@ -6,8 +6,10 @@ class Track < ActiveRecord::Base
   validates_presence_of :index
   validates_presence_of :name
   
-  default_scope { order(:artist_id, :volume_id, :index)}
+  default_scope { order(:index)}
   
+  self.per_page = 100
+    
   def location
     volume && "#{volume.location}-#{index}" || "Unknown"
   end

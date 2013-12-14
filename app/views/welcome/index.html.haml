@@ -1,2 +1,18 @@
-%h1 Welcome#index
-%p Find me in app/views/welcome/index.html.haml
+%h1
+  Music Library
+  
+%table#status
+  %tr
+    %th
+      Artists
+    %th
+      Albums
+    %th
+      Tracks
+  %tr
+    %td
+      = @artist_count
+    %td
+      = @album_count
+    %td
+      = @track_count

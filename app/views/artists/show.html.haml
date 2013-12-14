@@ -7,17 +7,7 @@
 %h3
   = link_to "Back to Artists", artists_path
 
-%table
-  %thead
-    %tr
-      %th.index
-        \#
-      %th.track
-        Name
-      %th.artist
-        Artist
-      %th.vol
-        Album
-      %th.actions
-  %tbody
-    = render @artist.tracks
+
+= render partial: "all_tracks", collection: @artist.volumes, as: :volume
+
+= render partial: "all_tracks", collection: @track_volumes, as: :volume

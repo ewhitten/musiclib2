@@ -3,6 +3,8 @@
 %table 
   %thead
     %tr
+      %th.loc
+        Location
       %th.name
         Volume
       %th.artist
@@ -10,4 +12,5 @@
       %th.actions
         = link_to "Add a Volume", new_volume_path, remote: true
   %tbody
-    = render @volumes
+    - cache cache_key_for(Volume) do
+      = render @volumes
