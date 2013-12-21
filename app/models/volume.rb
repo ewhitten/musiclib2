@@ -11,8 +11,8 @@ class Volume < ActiveRecord::Base
   end
   
   def artist_token=(token)
-    artist = token.first.gsub!(/<<<(.+?)>>>/) { create!(name: $1).id }
-    self.artist = artist
+    aname = token.gsub(/<<</, "").gsub(/>>>/, "")
+    self.artist_id = Artist.create!(name: aname).id
   end
   
 end
