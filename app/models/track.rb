@@ -6,6 +6,7 @@ class Track < ActiveRecord::Base
   validates_presence_of :index
   validates_presence_of :name
   
+  attr_accessor :artist_token
   default_scope { order(:index)}
   
   self.per_page = 100

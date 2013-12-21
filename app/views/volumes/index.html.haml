@@ -1,16 +1,17 @@
 - title "All Volumes"
 
-%table 
+%table.with_striping
   %thead
     %tr
       %th.loc
         Location
-      %th.name
+      %th.vol
         Volume
       %th.artist
         Artist(s)
       %th.actions
-        = link_to "Add a Volume", new_volume_path, remote: true
+        &nbsp;
+        -#= link_to "Add a Volume", new_volume_path, remote: true
   %tbody
     - cache cache_key_for(Volume) do
       = render @volumes

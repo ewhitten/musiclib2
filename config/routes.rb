@@ -11,7 +11,8 @@ Musiclib2::Application.routes.draw do
 
   get "welcome/index"
   
-
+  match 'search' => 'welcome#search', via: [:get, :post], as: :search
+   
   root 'welcome#index'
 
 end

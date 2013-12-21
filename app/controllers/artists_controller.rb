@@ -1,10 +1,16 @@
 class ArtistsController < ApplicationController
-  respond_to :html, :js
+  respond_to :html, :js, :json
   
   before_filter :load_artists, only: [:index]
   before_filter :find_artist, only: [:show, :edit, :update, :destroy]
   before_filter :load_artist_tracks, only: [:show]
   before_filter :build_artist, only: [:new, :create]
+
+  def index
+    respond_with @artists do |format|
+      format.json { render json: @artists.tokens(params[:q])}
+    end
+  end
 
   def create
     @artist.save
@@ -34,7 +40,7 @@ class ArtistsController < ApplicationController
   
   def load_artist_tracks
     @volumes = @artist.volumes
-    @track_volumes = (@artist.tracks - @volumes.map {|v| v.tracks}.flatten).map {|t| t.volume}
+    @track_volumes = (@artist.tracks - @volumes.map {|v| v.tracks}.flatten).map {|t| t.volume}.uniq.sort {|a,b| a.name <=> b.name}
   end
   
   def build_artist

@@ -1,0 +1,74 @@
+@import "colors"
+@import mixins
+
+.welcome
+  h1
+    text-align: center
+
+#search_area
+  text-align: center
+  width: 100%
+  margin:
+    top: 10px
+    bottom: 10px
+    
+  
+  #track_search
+    font-size: 24px
+    padding-left: 40px
+    
+    .field
+      margin-top: 8px
+      float: left
+      position: relative
+      width: 43%
+      
+    input#q_name_cont, input#q_artist_name_cont
+      width: 320px
+      padding: 2px 4px
+      
+    .submit
+      border: 0px
+      float: left
+      background-color: transparent
+  
+  #search_results
+    float: left
+    width: 940px
+    margin-left: 50px
+    background-color: white
+    border: 1px solid $cement
+
+table
+  background-color: white
+  &.with_striping
+    tbody
+      tr:nth-child(2n+1)
+        background: $light_grey3
+  tr
+    height: 22px
+    &:hover
+      @include gradient($white, $light_blue1)
+    &.header 
+      height: 25px
+      td, th
+        font-weight: bold
+        background-color: $light_grey3
+    
+  td, th
+    font-size: 12px
+    text-align: center
+    border: 1px solid $light_grey2
+    padding:
+      left: 6px
+      right: 4px
+      top: 3px
+      bottom: 3px
+    &.left_aligned
+      text-align: left
+      
+    &.track, &.artist, &.vol, &.name
+      text-align: left
+    
+      &.name
+        width: 150px

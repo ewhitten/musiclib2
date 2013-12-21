@@ -1,18 +1,27 @@
 %h1
-  Music Library
-  
-%table#status
-  %tr
-    %th
-      Artists
-    %th
-      Albums
-    %th
-      Tracks
-  %tr
-    %td
-      = @artist_count
-    %td
-      = @album_count
-    %td
-      = @track_count
+  Ultimate Sounds :: Music Library
+
+#search_area
+  .query
+    = search_form_for @q, url: search_path do |f|
+      .field
+        = f.label :name_cont, "Track:"
+        = f.text_field :name_cont, placeholder: "Search..."
+      .field
+        =  f.label :artist_name_cont, "Artist:"
+        = f.text_field :artist_name_cont, placeholder: "Search..."
+      
+      .submit
+        = f.submit
+  - if @tracks.any?
+    %table#search_results.with_striping
+      %thead
+        %tr
+          %th.track
+            Track
+          %th.artist
+            Artist
+          %th.vol 
+            Location
+      %tbody
+        = render partial: "search_result", collection: @tracks

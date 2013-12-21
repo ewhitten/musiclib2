@@ -1,13 +1,15 @@
 class WelcomeController < ApplicationController
-  before_filter :load_stats, only: [:index]
+  respond_to :html, :js
+  before_filter :load_stats
 
-
-  protected
-  
-  def load_stats
-    @artist_count = Artist.count
-    @album_count = Volume.count
-    @track_count = Track.count
+  def index
+    @q = Track.search(params[:q])
+    @tracks = params[:q].present? && @q.result(distinct: true) || []
   end
   
+  def search
+    index
+    render :index
+  end
+
 end

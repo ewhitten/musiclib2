@@ -7,7 +7,7 @@
     %td.artist
       = link_to track.artist.name, track.artist
     %td.vol
-      = link_to track.volume.name, track.volume
+      = link_to "#{track.volume.name} - #{track.volume.location}", track.volume
     %td.actions
       = link_to "edit", edit_track_path(track)
       \|

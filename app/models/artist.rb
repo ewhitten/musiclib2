@@ -4,6 +4,11 @@ class Artist < ActiveRecord::Base
   has_many :categories, through: :tracks
   
   validates_uniqueness_of :name
-  
   default_scope { order(:name) }
+  
+  def self.tokens(query)
+    results = where("lower(name) like ?", "%#{query}%")
+    results.blank? && [{id: "<<<#{query}>>>", name: "New: \"#{query}\""}] || results
+  end
+  
 end

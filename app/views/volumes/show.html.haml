@@ -1,12 +1,12 @@
 - title "#{@volume.name} - #{@volume.artist.name}"
 
 %h1
-  = "#{@volume.name} - #{@volume.artist.name}"
+  = "#{@volume.name_and_location} - #{@volume.artist.name}"
 
 %h3
   = link_to "Back to Albums", volumes_path
   
-%table.volume_details
+%table.volume_details.with_striping
   %thead
     %tr
       %th.index

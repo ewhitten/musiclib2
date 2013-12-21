@@ -5,7 +5,7 @@
 - cache ["pagination", cache_key_for(Volume)] do  
   = will_paginate @tracks
 
-%table.volume_details
+%table.volume_details.with_striping
   %thead
     %tr
       %th.index

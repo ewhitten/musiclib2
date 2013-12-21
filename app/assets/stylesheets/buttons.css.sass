@@ -1,0 +1,57 @@
+@import "colors"
+@import "fancy-buttons"
+@import "mixins"
+
+$button-font-size: 13px
+
+.fancy-button-base
+  +fancy-button
+  margin: 0 2px
+  vertical-align: middle
+
+.button, button, input[type=submit]
+  @extend .fancy-button-base
+  &[disabled]
+    +disable-fancy-button(gray)
+
+$fb-allow-disabled: true
+.button, button
+  @include fancy-button-matte($light_grey, $button-font-size - 2px)
+  
+  &.white
+    @include fancy-button-matte($button_grey, $button-font-size)
+    font-weight: normal
+    padding-top: 10px
+    padding-bottom: 10px
+    
+  &.orange
+    @include fancy-button-matte($orange, $button-font-size)
+    &.small
+      @include fancy-button-matte($orange, $button-font-size - 3px)
+  &.light_grey
+    @include fancy-button-matte($light_grey, $button-font-size)
+    &.small
+      @include fancy-button-matte($light_grey, $button-font-size - 3px)
+  &.grey
+    @include fancy-button-matte($light_grey7, $button-font-size)
+    &.small
+      @include fancy-button-matte($medium_grey, $button-font-size - 3px)
+  &.blue
+    @include fancy-button-matte($blue, $button-font-size) 
+    &.small
+      @include fancy-button-matte($blue, $button-font-size - 3px)
+  &.active
+    +fb-color(darken($light_grey, 6), "active", $light_grey)
+    +box-shadow(darken($light_grey, 15) 0 .08em .2em 1px inset)
+    text-shadow: white 0px 0px -1px
+    
+  &.back
+    @include fancy-button-matte($button_grey, $button-font-size)
+    @include rounded-corners(2px)
+  
+  &.help
+    @include fancy-button-matte(lighten($blue, 30%), $button-font-size)
+    @include rounded-corners(2px)
+    font-size: 12px
+    font-weight: normal
+    
