@@ -14,7 +14,7 @@ class VolumesController < ApplicationController
   end
   
   def update
-    @volume.update_attributes volume_params
+    @volume.update volume_params
     respond_with @volume
   end
   

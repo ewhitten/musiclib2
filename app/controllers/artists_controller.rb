@@ -18,7 +18,7 @@ class ArtistsController < ApplicationController
   end
   
   def update
-    @artist.update_attributes params[:artist]
+    @artist.update params[:artist]
     respond_with @artist
   end
   

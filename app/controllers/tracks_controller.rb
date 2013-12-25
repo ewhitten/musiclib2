@@ -12,7 +12,7 @@ class TracksController < ApplicationController
   end
   
   def update
-    @track.update_attributes track_params
+    @track.update track_params
     respond_with @track
   end
   

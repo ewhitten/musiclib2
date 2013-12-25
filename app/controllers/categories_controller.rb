@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
   end
   
   def update
-    @category.update_attributes params[:category]
+    @category.update params[:category]
     respond_with @category
   end
   
