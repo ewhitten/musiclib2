@@ -7,7 +7,7 @@ class Artist < ActiveRecord::Base
   default_scope { order(:name) }
   
   def self.tokens(query)
-    results = where("lower(name) like ?", "%#{query}%")
+    results = where("lower(name) like ?", "%#{query.downcase}%")
     results.blank? && [{id: "<<<#{query}>>>", name: "New: \"#{query}\""}] || results
   end
   

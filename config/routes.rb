@@ -3,7 +3,9 @@ Musiclib2::Application.routes.draw do
 
   resources :categories
 
-  resources :volumes
+  resources :volumes do
+    resources :tracks
+  end
 
   resources :artists do
     resources :volumes

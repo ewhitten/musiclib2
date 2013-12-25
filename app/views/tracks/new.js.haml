@@ -1,0 +1,6 @@
+var new_track = $("#{escape_javascript(render(partial: "form"))}");
+$("table.volume_details").find(".empty_message").hide();
+$("table.volume_details").append(new_track);
+$("table.volume_details").addClass('disabled');
+
+$(".track_artist").tokenInput('/artists.json', {tokenLimit: 1});

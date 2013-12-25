@@ -14,7 +14,7 @@ class VolumesController < ApplicationController
   end
   
   def update
-    @volume.update_attributes params[:volume]
+    @volume.update_attributes volume_params
     respond_with @volume
   end
   
@@ -37,7 +37,7 @@ class VolumesController < ApplicationController
   private
   
   def volume_params
-    params.require(:volume).permit(:name, :location, :category_id, :artist_token)
+    params.require(:volume).permit(:name, :location, :category_id, :artist_token, {tracks_attributes: [:name, :artist_id, :index, :artist_token]})
   end
   
 end

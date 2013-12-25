@@ -15,9 +15,13 @@
         Track
       %th.artist
         Artist
-      %th.vol
-        Album
       %th.actions
         &nbsp;
   %tbody
-    = render @volume.tracks
+    - if @volume.tracks.any?
+      = render @volume.tracks
+    - else
+      %tr.empty_message
+        %td{colspan: 5}
+          No tracks added yet.
+          = link_to "Add one Now", new_volume_track_path(@volume), remote: true

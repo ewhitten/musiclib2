@@ -1,0 +1,13 @@
+%tr.track_form_row
+  %td{colspan: 4}
+    = form_for [@volume, @track], remote: true do |f|
+      .index
+        = f.text_field :index, value: (@volume.tracks.length)
+      .track
+        = f.text_field :name, placeholder: 'Track Name'
+      .artist
+        = f.text_field :artist_token, placeholder: 'Track Artist (leave blank for same as Album)' , class: "track_artist"
+
+      .actions
+        = link_to "cancel", '#', class: "cancel_link"
+        = f.submit "Save", class: "small orange button", remote: true

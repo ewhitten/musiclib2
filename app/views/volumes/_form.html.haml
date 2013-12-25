@@ -14,19 +14,8 @@
       %td
         = f.label :category_id
         = f.collection_select :category_id, Category.all, :id, :name, {include_blank: true}, {class: "chosen-select"}
-    - f.fields_for :tracks do |t|
-      %tr.track_row
-        %ul
-          %li.index
-            = t.text_field :index, placeholder: '#'
-          %li.track
-            = t.text_field :name
-          %li.artist
-            = t.text_field :artist_id
-          %li.actions
-            &nbsp;
-          
-          
+
+
     %tr
       %td{colspan: 4}
-        = f.submit "Create Album"
+        = f.submit "Save"

@@ -14,7 +14,26 @@ table.volume_details
   
   .actions
     width: 100px
+    a
+      margin-right: 4px
+    a, input
+      float: left
+
+  .empty_message
+    td
+      text-align: center
     
+.track_form_row
+  div
+    float: left
+  #track_index
+    width: 20px
+  
+  #track_name
+    width: 390px
+    
+    &.actions
+      float: right
 
 body.volumes
   table.volume_fields
@@ -23,3 +42,6 @@ body.volumes
     #volume_name, #token-input-volume_artist_id
       width: 300px
       text-align: left
+    
+    #volume_name
+      margin-left: 18px

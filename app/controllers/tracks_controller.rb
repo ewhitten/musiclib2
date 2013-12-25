@@ -1,6 +1,7 @@
 class TracksController < ApplicationController
   respond_to :html, :js
   
+  before_filter :load_volume, only: [:new, :edit, :destroy, :update]
   before_filter :load_tracks, only: [:index]
   before_filter :find_track, only: [:show, :edit, :update, :destroy]
   before_filter :build_track, only: [:new, :create]
@@ -11,7 +12,7 @@ class TracksController < ApplicationController
   end
   
   def update
-    @track.update_attributes params[:track]
+    @track.update_attributes track_params
     respond_with @track
   end
   
@@ -23,6 +24,10 @@ class TracksController < ApplicationController
   
   protected
   
+  def load_volume
+    @volume = Volume.find(params[:volume_id])
+  end
+  
   def load_tracks
     @tracks = Track.unscoped.order(:name, :artist_id, :volume_id).paginate(page: params[:page])
   end
@@ -32,7 +37,13 @@ class TracksController < ApplicationController
   end
   
   def build_track
-    @track = @track.build params[:track]
+    @track = @volume.tracks.new
+  end
+  
+  private
+  
+  def track_params
+    params.require(:track).permit(:name, :artist_id, :index, :artist_id, :artist_token)
   end
   
 end
